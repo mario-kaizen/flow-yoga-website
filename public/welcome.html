@@ -33,9 +33,15 @@
   .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
   .flowmark-img{height:42px;width:auto;display:block;margin:0 auto 26px}
 
-  .hero{padding:52px 0 36px;text-align:center;border-bottom:1px solid var(--line);
+  .hero{padding:36px 0 36px;text-align:center;border-bottom:1px solid var(--line);
         background:radial-gradient(120% 90% at 50% 0%,var(--ground2) 0%,var(--black) 70%)}
   .hero .deck{color:var(--muted);font-size:18px;max-width:46ch;margin:0 auto}
+  .hero-img{width:100%;border-radius:10px;border:1px solid var(--line);margin-bottom:22px}
+  .hero .eyebrow{display:block;margin-bottom:16px}
+  .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .shot{margin:16px auto 0;max-width:420px}
+  .shot img{width:100%;border-radius:10px;border:1px solid var(--line)}
+  .shot figcaption{font-size:13.5px;color:var(--muted);text-align:center;margin-top:8px;letter-spacing:.04em}
 
   .steps{padding:44px 0 8px}
   .step{background:var(--ground);border:1px solid var(--line);border-radius:8px;padding:26px 22px;margin-bottom:22px}
@@ -50,7 +56,9 @@
   .hint p{margin:0}
   code{font-family:inherit;background:rgba(245,239,230,.1);padding:1px 7px;border-radius:4px;font-size:15px;white-space:nowrap}
 
-  .storebtns{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+  .storebtns{display:flex;flex-wrap:wrap;gap:14px;margin-top:18px;align-items:center}
+  .storebtns .badge{height:52px;width:auto;transition:transform .18s ease}
+  .storebtns a:hover .badge{transform:translateY(-2px)}
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;background:var(--grad);color:#fff;border:none;text-decoration:none;
        font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:13.5px;padding:15px 24px;border-radius:2px;flex:1 1 180px;
        transition:transform .18s ease,filter .18s ease}
@@ -70,9 +78,9 @@
 
 <section class="hero">
   <div class="wrap">
-    <img src="/assets/flow-logo.png" alt="Flow" class="flowmark-img">
+    <img src="/assets/welcome-hero.jpg" alt="Welcome to Flow. Your 2 free classes are ready." class="hero-img">
+    <h1 class="visually-hidden">Welcome to Flow. Your two free classes are ready.</h1>
     <div class="eyebrow">Infrared Heated Yoga · Coffs Harbour Jetty</div>
-    <h1>Your Two Free <span class="grad-text">Classes Are Ready.</span></h1>
     <p class="deck">You said yes to two free classes, and we could not be happier to have you on the founding list. We have already done the setup for you. Your account is created, your two free classes are sitting on it, and all you have to do is get in and book. Here is how.</p>
   </div>
 </section>
@@ -89,7 +97,14 @@
       </div>
       <div class="subcard">
         <b>New to Mindbody?</b>
-        <p class="muted">You will have an email titled "Finish creating your Flow account" from <code>confirm@mindbodyonline.com</code>. Tap the button inside, set a password, and you are in.</p>
+        <p class="muted">You will have an email titled "Finish creating your Flow account" from <code>confirm@mindbodyonline.com</code>. It looks like this:</p>
+        <figure class="shot">
+          <img src="/assets/welcome-email-screenshot.png" alt="The Finish creating your Flow account email, with a Complete your account button" loading="lazy">
+        </figure>
+        <p class="muted" style="margin:16px 0 0">Tap <b>Complete your account</b>, set a password on the page that opens, and you are in.</p>
+        <figure class="shot">
+          <img src="/assets/welcome-password-screenshot.png" alt="The Mindbody page where you confirm your email and create a password" loading="lazy">
+        </figure>
       </div>
       <div class="hint">
         <p>Cannot find it? Search your inbox for <b>mindbody</b> and check your junk or spam folder. If it is truly nowhere, reply to the text that brought you here and we will sort it for you.</p>
@@ -100,8 +115,8 @@
       <div class="step-tag"><div class="step-num">2</div><div class="eyebrow">Get the app</div></div>
       <p>Download the Flow app so booking lives in your pocket. It is listed as <b>Flow Yoga and Mobility</b>.</p>
       <div class="storebtns">
-        <a class="btn" href="https://apps.apple.com/au/app/flow-yoga-and-mobility/id6792766446">App Store</a>
-        <a class="btn btn-ghost" href="https://play.google.com/store/apps/details?id=com.fitnessmobileapps.flow45463r">Google Play</a>
+        <a href="https://apps.apple.com/au/app/flow-yoga-and-mobility/id6792766446"><img src="/assets/badge-appstore.png" alt="Download on the App Store" class="badge"></a>
+        <a href="https://play.google.com/store/apps/details?id=com.fitnessmobileapps.flow45463r"><img src="/assets/badge-googleplay.png" alt="Get it on Google Play" class="badge"></a>
       </div>
     </div>
 

@@ -44,6 +44,12 @@ const FUNNEL_META = {
 fs.mkdirSync(DATA_DIR, { recursive: true });
 
 app.use(express.json({ limit: "32kb" }));
+// The homepage now points to the active intro offer; preserve campaign parameters.
+app.get("/", (req, res) => {
+  const query = req.originalUrl.includes("?") ? req.originalUrl.slice(req.originalUrl.indexOf("?")) : "";
+  res.redirect(301, "https://findyourflow.life/intro" + query);
+});
+
 app.use(express.static(path.join(__dirname, "public"), { extensions: ["html"] }));
 
 app.get("/healthz", (_req, res) => res.json({ ok: true }));

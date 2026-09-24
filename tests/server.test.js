@@ -220,10 +220,19 @@ test("privacy page publishes Flow's actual collection and disclosure practices",
 test("public page footers link to the privacy policy", async (t) => {
   const { baseUrl } = await startServer(t);
 
-  for (const route of ["/", "/thanks/"]) {
+  for (const route of ["/thanks/"]) {
     const response = await fetch(`${baseUrl}${route}`);
     assert.equal(response.status, 200);
     const html = await response.text();
     assert.match(html, /<footer>[\s\S]*href="\/privacy"[\s\S]*Privacy Policy[\s\S]*<\/footer>/);
+  }
+});
+
+test("homepage redirects to the intro and preserves campaign parameters", async (t) => {
+  const { baseUrl } = await startServer(t);
+  for (const query of ["", "?utm_source=facebook&fbclid=test123"]) {
+    const response = await fetch(`${baseUrl}/${query}`, { redirect: "manual" });
+    assert.equal(response.status, 301);
+    assert.equal(response.headers.get("location"), "https://findyourflow.life/intro" + query);
   }
 });
